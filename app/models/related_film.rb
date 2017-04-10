@@ -1,0 +1,2 @@
+class RelatedFilm < ApplicationRecord
+end
