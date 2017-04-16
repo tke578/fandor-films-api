@@ -16,7 +16,7 @@
 # users commonly want.
 
 # support
-require 'support/request_helpers.rb'
+require 'support/request_helpers'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
