@@ -95,6 +95,10 @@ RSpec.describe Api::V1::UsersController do
   end
 
   describe "PUT/PATCH #update" do
+  	before(:each) do
+      @user = FactoryGirl.create :user
+      request.headers['Authorization'] =  @user.auth_token
+    end
 
     context "when is successfully updated" do
       before(:each) do
@@ -132,11 +136,13 @@ RSpec.describe Api::V1::UsersController do
     end
   end
   describe "DELETE #destroy" do
-  	before(:each) do
-    	@user = FactoryGirl.create :user
-    	delete :destroy, params: { id: @user.id }, format: :json
-  	end
+    before(:each) do
+      @user = FactoryGirl.create :user
+      api_authorization_header @user.auth_token #we added this line
+      delete :destroy, params: { id: @user.auth_token }
+    end
 
-  	it { should respond_with 204 }
-	end
+    it { should respond_with 204 }
+
+  end
 end
