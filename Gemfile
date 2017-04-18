@@ -38,6 +38,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'shoulda-matchers'
+  gem "binding_of_caller"
+  gem 'pry', '~> 0.10.4'
 end
 
 group :development do
