@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417051652) do
+ActiveRecord::Schema.define(version: 20170418231147) do
 
   create_table "film_ratings", force: :cascade do |t|
-    t.integer "film_id"
-    t.float   "rating"
+    t.integer  "film_id"
+    t.float    "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "films", force: :cascade do |t|
@@ -22,8 +24,9 @@ ActiveRecord::Schema.define(version: 20170417051652) do
     t.text     "description"
     t.text     "url_slug"
     t.integer  "year"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "average_rating"
   end
 
   create_table "related_films", force: :cascade do |t|
