@@ -6,12 +6,17 @@ class Api::V1::FilmsController < ApplicationController
 	end
 
 	def index
-		# respond_with Film.search(params)
 		films = Film.search(params).page(params[:page]).per(params[:per_page])
-    render json: films, meta: { pagination:
+    	render json: films, meta: { pagination:
                                    { per_page: params[:per_page],
                                      total_pages: films.total_pages,
                                      total_objects: films.total_count } }
 	end
+
+	private
+
+    def film_rating_params
+      params.require(:film).permit(:rating)
+    end
 
 end

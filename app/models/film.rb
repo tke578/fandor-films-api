@@ -23,10 +23,10 @@ class Film < ApplicationRecord
 	end
 
 	def update_rating
-			all_film_ratings = film_ratings.pluck(:rating)
-			sum_ratings = all_film_ratings.inject(0, :+)
-			new_updated_rating = (sum_ratings/film_ratings.size).round(2)
-			update(average_rating: new_updated_rating)
+		all_film_ratings = film_ratings.pluck(:rating)
+		sum_ratings = all_film_ratings.inject(0, :+)
+		new_updated_rating = (sum_ratings/film_ratings.size).round(2)
+		update(average_rating: new_updated_rating)
 	end
 
 end

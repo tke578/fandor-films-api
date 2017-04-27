@@ -27,6 +27,6 @@ class Api::V1::FilmRatingsController < ApplicationController
 	private
 
     def film_rating_params
-      params.require(:film_rating).permit(:rating)
+      params.require(:film_rating).permit(:title, :description, :url_slug, :year, :average_rating)
     end
 end
