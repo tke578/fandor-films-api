@@ -1,24 +1,52 @@
-# README
+# Fandor Films API
+The Fandor films API allows you to retrieve a list of films, retrieve a specific film & rate a film.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+git clone
 
-* Ruby version
+rake db:migrate RAILS_ENV=development
 
-* System dependencies
+rake db:migrate RAILS_ENV=test
 
-* Configuration
+rake db:seed
 
-* Database creation
+#### Installing POW-MAC OS for sub-domain
 
-* Database initialization
+ *curl get.pow.cx | sh*
+ 
+ *cd ~/.pow*
+ 
+ then create a symlink
+ 
+ *ln -s ~/path_to_repo*
+ 
+ #### Installing Prax-Linux users for sub-domain
+ 
+ *sudo git clone git://github.com/ysbaddaden/prax.git /opt/prax*
+ 
+ *cd /opt/prax/*
+ 
+ *./bin/prax install*
+ 
+ *cd ~/path_to_repo*
+ 
+ *prax link*
+ 
+ If you want to start the prax server automatically, add this line to the .profile file:
+ 
+ *prax start*
+ 
+ I use [Postman](https://www.getpostman.com/) for API client.
+ 
+ To retrieve a list of all the films. GET http://api.fandor-films-api.dev/films/
+ 
+[Example](http://imgur.com/a/BkjwL)
 
-* How to run the test suite
+To rate a film. POST whatever film_id http://api.fandor-films-api.dev/films/3/film_ratings/
 
-* Services (job queues, cache servers, search engines, etc.)
+[Example](http://imgur.com/a/mVNFs)
 
-* Deployment instructions
+Retrieving a specifc film based on attributes currently are by time, title, description, url_slug, year, related_film and average-rating. GET http://api.fandor-films-api.dev/films/?average_rating=3
 
-* ...
+[Example](http://imgur.com/a/Zl6o1)
